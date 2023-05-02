@@ -15,13 +15,40 @@
   </header>
 </head>
 
-<body style="overflow-y: hidden;">
+<body style="overflow-y: hidden; color:brown">
   <div class="jumbotron" style="height: 730px;">
     <h2 class="display-4" style="color: whitesmoke;">Hello, Voter!</h2>
     <p class="lead" style="color: whitesmoke;">Welcome to new age of voting.</p>
+    
     <hr class="my-4">
     <br><br>
     <a class="btn btn-info" href="./how-it-works.html" role="button">Learn more</a>
+    <div>
+      <h1>User Login</h1>
+	<form action="/login" method="POST">
+		<label for="aadhar">Aadhar Number:</label>
+		<input type="text" id="aadhar" name="aadhar" required>
+		<br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<br>
+		<input type="submit" value="Login">
+	</form>
+
+	<h1>User Sign Up</h1>
+	<form action="/signup" method="POST">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<br>
+		<label for="aadhar">Aadhar Number:</label>
+		<input type="text" id="aadhar" name="aadhar" required>
+		<br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<br>
+		<input type="submit" value="Sign Up">
+	</form>
+    </div>
   </div>
   <script src="js/navbar.js"></script>
 
