@@ -17,41 +17,41 @@
 
 <body style="overflow-y: hidden; color:brown">
   <div class="jumbotron" style="height: 730px;">
-    <h2 class="display-4" style="color: whitesmoke;">Hello, Voter!</h2>
-    <p class="lead" style="color: whitesmoke;">Welcome to new age of voting.</p>
+    <h2 class="display-4" style="color: grey;">Hello, Voter!</h2>
+    <p class="lead" style="color: grey  ;">Welcome to new age of voting.</p>
     
     <hr class="my-4">
     <br><br>
-    <a class="btn btn-info" href="./how-it-works.html" role="button">Learn more</a>
+    <!-- <a class="btn btn-info" href="./how-it-works.html" role="button">Learn more</a> -->
     <div>
       <h1>User Login</h1>
-	<form action="/login" method="POST">
+	<form action="/login" method="POST" id="login-form">
 		<label for="aadhar">Aadhar Number:</label>
-		<input type="text" id="aadhar" name="aadhar" required>
+		<input type="text" id="login-aadhar" name="aadhar" required>
 		<br>
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required>
+		<input type="password" id="login-password" name="password" required>
 		<br>
 		<input type="submit" value="Login">
 	</form>
 
 	<h1>User Sign Up</h1>
-	<form action="/signup" method="POST">
+	<form action="/signup" method="POST" id="signup-form">
 		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" required>
+		<input type="text" id="signup-username" name="username" required>
 		<br>
 		<label for="aadhar">Aadhar Number:</label>
-		<input type="text" id="aadhar" name="aadhar" required>
+		<input type="text" id="signup-aadhar" name="aadhar" required>
 		<br>
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required>
+		<input type="password" id="signup-password" name="password" required>
 		<br>
 		<input type="submit" value="Sign Up">
 	</form>
     </div>
   </div>
   <script src="js/navbar.js"></script>
-
+  <script src="js/auth.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/web3.min.js"></script>
   <script src="js/truffle-contract.js"></script>

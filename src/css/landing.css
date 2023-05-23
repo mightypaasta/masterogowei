@@ -9,7 +9,7 @@ body {
 }
 
 .jumbotron{
-  background-image: url("../img/banner.jpg");
+  background: white !important;
   background-size:cover;
 }
 

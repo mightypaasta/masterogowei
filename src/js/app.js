@@ -119,6 +119,29 @@ App = {
     }).then(function (hasVoted) {
       // Do not allow a user to vote
       if (hasVoted) {
+        fetch(`http://localhost:8080/users/voted/${localStorage.getItem('aadhar')}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // body: JSON.stringify({
+          //   aadhar: aadhar,
+          //   password: password,
+          // }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log('Voting success');
+              // alert('Voting success');
+            } else {
+              console.log('Voting failed');
+              alert('Voting failed');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+
         $('form').hide();
         $('#vote-msg').html(`<div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3">
         <div class="alert alert-danger text-center" role="alert">

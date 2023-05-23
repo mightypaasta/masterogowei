@@ -1,9 +1,11 @@
 // require the necessary packages
 const express = require('express');
 const mysql = require('mysql2');
+const cors= require('cors');
 
 // create an express app
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // create a MySQL connection pool
@@ -38,25 +40,28 @@ app.post('/users', (req, res) => {
 });
 
 // define a route to get a user
-app.get('/users', (req, res) => {
-  const { aadhar } = req.body;
-  
+app.post('/login', (req, res) => {
+  const { aadhar,password } = req.body;
+  console.log("login data",aadhar,password);
 
   // check if the Aadhaar number exists in the database
   pool.query(
-    'SELECT * FROM voters WHERE aadhar = ?',
-    [aadhar],
+    'SELECT * FROM voters WHERE aadhar = ? AND password = ?',
+    [aadhar,password],
     (error, results) => {
       if (error) {
         console.error(error);
         res.status(400).send('Failed to fetch user');
       } else if (results.length === 0) {
+        console.log('user not found');
         res.status(400).send('User not found');
       } else {
         const user = results[0];
         if (user.isVoted) {
+          console.log('user voted');
           res.status(205).send('User has already voted');
         } else {
+          console.log('user found');
           res.status(200).send('User found');
         }
       }
